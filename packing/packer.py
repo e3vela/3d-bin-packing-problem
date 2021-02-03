@@ -437,16 +437,6 @@ class Packer:
         for bin in self.bins:
             for unplaced_item in self.unplaced_items:
                 self.pack_to_bin(bin, unplaced_item)
-
-            print("\n:::::::::::", bin.string())
-            print("FITTED ITEMS:")
-            for item in bin.items:
-                print("====> ", item.string())
-
-            print("\nUNFITTED ITEMS:")
-            for item in bin.unfitted_items:
-                print("====> ", item.string())
-
             filling_ratio_list.append(bin.get_filling_ratio())
 
         max_filling_ratio = max(filling_ratio_list)
@@ -455,4 +445,3 @@ class Packer:
             if bin.get_filling_ratio() == max_filling_ratio:
                 for item in bin.items:
                     self.placed_items.append(item)
-                print("\nSelected bin with highest filling ratio: ", bin.string())
